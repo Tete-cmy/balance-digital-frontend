@@ -1,0 +1,198 @@
+Biblioteca
+/
+Tareas escolares
+/
+FlammaCierreMensual.css
+
+
+/* =========================================================
+   FLAMMA — CIERRE MENSUAL DE AHORRO
+   ========================================================= */
+
+.flamma-cierre-mensual {
+  display: grid;
+  gap: 11px;
+  padding: 14px 15px;
+  border: 1px solid #dfe6e2;
+  border-radius: 16px;
+  background:
+    linear-gradient(145deg, #ffffff 0%, #f7fffb 100%);
+}
+
+.flamma-cierre-mensual__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.flamma-cierre-mensual__header > div {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #314039;
+}
+
+.flamma-cierre-mensual__header > div svg {
+  color: #38bd81;
+}
+
+.flamma-cierre-mensual__header strong {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.flamma-cierre-mensual__header button {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 9px;
+  color: #6f7e77;
+  background: #f1f6f3;
+  cursor: pointer;
+}
+
+.flamma-cierre-mensual__header button:hover {
+  color: #29ae73;
+  background: #e8f8f0;
+}
+
+.flamma-cierre-mensual__header button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.flamma-cierre-mensual__header .girando {
+  animation: flamma-cierre-giro 0.8s linear infinite;
+}
+
+.flamma-cierre-mensual__resultado {
+  display: grid;
+  gap: 3px;
+  padding: 12px 13px;
+  border-radius: 13px;
+  background: rgba(70, 197, 139, 0.08);
+}
+
+.flamma-cierre-mensual__resultado > span,
+.flamma-cierre-mensual__ultimo > span {
+  color: #7b8882;
+  font-size: 9px;
+  font-weight: 650;
+}
+
+.flamma-cierre-mensual__monto {
+  font-size: 20px;
+  font-weight: 850;
+  letter-spacing: -0.035em;
+}
+
+.flamma-cierre-mensual__monto--ahorro {
+  color: #26ad70;
+}
+
+.flamma-cierre-mensual__monto--equilibrio {
+  color: #74817b;
+}
+
+.flamma-cierre-mensual__monto--deficit {
+  color: #df5948;
+}
+
+.flamma-cierre-mensual__resultado small {
+  color: #87938d;
+  font-size: 8.5px;
+}
+
+.flamma-cierre-mensual__ultimo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 2px;
+}
+
+.flamma-cierre-mensual__ultimo strong {
+  color: #43514a;
+  font-size: 9.5px;
+  font-weight: 800;
+  text-align: right;
+}
+
+.flamma-cierre-mensual__logros {
+  display: grid;
+  gap: 7px;
+  padding: 10px 11px;
+  border: 1px solid rgba(245, 166, 35, 0.28);
+  border-radius: 12px;
+  background: #fff9ed;
+}
+
+.flamma-cierre-mensual__logros > span {
+  color: #b67612;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.flamma-cierre-mensual__logros strong {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #38463f;
+  font-size: 9.5px;
+}
+
+.flamma-cierre-mensual__logros strong small {
+  padding: 3px 7px;
+  border-radius: 999px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #f4a31e, #f07b18);
+  font-size: 8px;
+}
+
+.flamma-cierre-mensual__estado,
+.flamma-cierre-mensual__error {
+  margin: 0;
+  padding: 10px;
+  border-radius: 11px;
+  font-size: 9px;
+}
+
+.flamma-cierre-mensual__estado {
+  color: #68776f;
+  background: #f4f7f5;
+}
+
+.flamma-cierre-mensual__error {
+  color: #bd493c;
+  background: #fff1ef;
+}
+
+@keyframes flamma-cierre-giro {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html.tema-oscuro body .flamma-cierre-mensual {
+  border-color: #3a4942;
+  background: linear-gradient(145deg, #27332e, #222d28);
+}
+
+html.tema-oscuro body .flamma-cierre-mensual__header > div,
+html.tema-oscuro body .flamma-cierre-mensual__ultimo strong,
+html.tema-oscuro body .flamma-cierre-mensual__logros strong {
+  color: #edf5f1;
+}
+
+html.tema-oscuro body .flamma-cierre-mensual__resultado {
+  background: rgba(70, 197, 139, 0.1);
+}
+
+html.tema-oscuro body .flamma-cierre-mensual__logros {
+  border-color: rgba(245, 166, 35, 0.24);
+  background: rgba(120, 78, 11, 0.18);
+}

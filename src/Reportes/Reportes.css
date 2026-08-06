@@ -1,0 +1,828 @@
+Biblioteca
+/
+Tareas escolares
+/
+Reportes.css
+
+
+.reportes-page {
+  display: grid;
+  gap: 20px;
+  padding-bottom: 24px;
+  font-family: "Lato", sans-serif;
+}
+
+.reportes-error {
+  padding: 13px 16px;
+  border: 1px solid #f4b7b0;
+  border-radius: 12px;
+  background: #fff0ee;
+  color: #c54d40;
+  font-size: 14px;
+}
+
+.reportes-resumen {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.reporte-resumen-card,
+.reporte-panel {
+  border: 1px solid #e1e6e3;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(31, 53, 44, 0.06);
+}
+
+.reporte-resumen-card {
+  min-height: 112px;
+  padding: 19px 20px;
+}
+
+.reporte-resumen-card__icono {
+  display: inline-flex;
+  margin-bottom: 7px;
+  font-size: 19px;
+  line-height: 1;
+}
+
+.reporte-resumen-card strong {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  line-height: 1.1;
+}
+
+.reporte-resumen-card p {
+  margin: 5px 0 0;
+  color: #8a949f;
+  font-size: 13px;
+}
+
+.reporte-resumen-card--ingresos strong {
+  color: #48c58d;
+}
+
+.reporte-resumen-card--gastos strong {
+  color: #c95849;
+}
+
+.reporte-resumen-card--ahorro strong {
+  color: #4f866d;
+}
+
+.reporte-resumen-card--tasa strong {
+  color: #8154f4;
+}
+
+.reporte-panel {
+  padding: 20px;
+  overflow: hidden;
+}
+
+.reporte-panel__header {
+  margin-bottom: 14px;
+}
+
+.reporte-panel__header--fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reporte-panel__header h2 {
+  margin: 0;
+  color: #1f2c27;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
+
+.reporte-panel__header p,
+.reporte-panel__header span {
+  margin: 6px 0 0;
+  color: #959daa;
+  font-size: 12px;
+}
+
+.reportes-vacio {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: #f8faf9;
+  color: #8b9590;
+}
+
+.grafica-barras {
+  padding: 20px 22px 8px;
+  border-radius: 16px;
+  background: #f8faf9;
+}
+
+.grafica-barras__contenedor {
+  position: relative;
+}
+
+.grafica-barras__area {
+  height: 255px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(58px, 1fr));
+  align-items: end;
+  gap: 14px;
+  border-bottom: 1px solid #dfe5e2;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 61px,
+    #e3e8e5 62px
+  );
+}
+
+.grafica-barras__grupo {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 8px;
+  cursor: crosshair;
+}
+
+.grafica-barras__columnas {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 5px;
+}
+
+.grafica-barras__columna {
+  width: min(42%, 46px);
+  min-height: 4px;
+  border-radius: 4px 4px 0 0;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.grafica-barras__grupo:hover .grafica-barras__columna {
+  filter: brightness(0.97);
+  transform: translateY(-2px);
+}
+
+.grafica-barras__columna--ingreso {
+  background: #5cc794;
+}
+
+.grafica-barras__columna--gasto {
+  background: #c86c5f;
+}
+
+.grafica-barras__mes {
+  padding-bottom: 6px;
+  text-align: center;
+  color: #959daa;
+  font-size: 11px;
+}
+
+.grafica-tooltip {
+  position: absolute;
+  z-index: 20;
+  width: max-content;
+  min-width: 170px;
+  padding: 12px 14px;
+  border: 1px solid #e0e5e2;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 12px 28px rgba(25, 46, 37, 0.16);
+  color: #334039;
+  pointer-events: none;
+}
+
+.grafica-tooltip strong {
+  display: block;
+  margin-bottom: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+}
+
+.grafica-tooltip div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.grafica-tooltip b {
+  font-weight: 700;
+}
+
+.grafica-tooltip--barras {
+  top: 2px;
+  translate: -50% 0;
+}
+
+.tooltip-ingreso {
+  color: #32b978;
+}
+
+.tooltip-gasto {
+  color: #c95849;
+}
+
+.tooltip-ahorro {
+  color: #8154f4;
+}
+
+.grafica-leyenda {
+  display: flex;
+  gap: 18px;
+  margin-top: 14px;
+  color: #7f8984;
+  font-size: 12px;
+}
+
+.grafica-leyenda span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.grafica-leyenda i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.leyenda-ingreso {
+  background: #48c58d;
+}
+
+.leyenda-gasto {
+  background: #c95849;
+}
+
+.distribucion-gastos {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 24px;
+}
+
+.distribucion-gastos__grafica {
+  min-height: 275px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: #f8faf9;
+}
+
+.distribucion-gastos__svg-wrap {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  display: grid;
+  place-items: center;
+}
+
+.distribucion-gastos__svg {
+  width: 230px;
+  height: 230px;
+  overflow: visible;
+}
+
+.distribucion-gastos__segmento {
+  stroke: #f8faf9;
+  stroke-width: 4;
+  cursor: pointer;
+  transform-origin: 110px 110px;
+  transition: transform 0.18s ease, filter 0.18s ease;
+}
+
+.distribucion-gastos__segmento--activo {
+  transform: scale(1.035);
+  filter: brightness(1.03);
+}
+
+.grafica-tooltip--dona {
+  left: 50%;
+  bottom: 0;
+  translate: -50% 0;
+  min-width: 155px;
+  text-align: center;
+}
+
+.grafica-tooltip--dona span {
+  display: block;
+  color: #26322d;
+  font-weight: 700;
+}
+
+.grafica-tooltip--dona small {
+  display: block;
+  margin-top: 3px;
+  color: #8a949f;
+}
+
+.distribucion-gastos__lista {
+  display: grid;
+  align-content: center;
+  gap: 12px;
+}
+
+.distribucion-categoria {
+  cursor: default;
+}
+
+.distribucion-categoria__encabezado {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #26322d;
+  font-size: 13px;
+}
+
+.distribucion-categoria__encabezado span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.distribucion-categoria__encabezado i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.distribucion-categoria__barra {
+  height: 6px;
+  margin: 7px 0 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e5e9e7;
+}
+
+.distribucion-categoria__barra span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.distribucion-categoria small {
+  color: #969faa;
+}
+
+.grafica-ahorro {
+  padding: 18px 30px 14px;
+  border-radius: 16px;
+  background: #fafbfb;
+}
+
+.grafica-ahorro__svg-wrap {
+  position: relative;
+  height: 230px;
+  border-bottom: 1px solid #e8ecea;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 54px,
+    rgba(218, 224, 221, 0.72) 55px
+  );
+}
+
+.grafica-ahorro svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.grafica-ahorro__relleno {
+  fill: rgba(129, 84, 244, 0.10);
+}
+
+.grafica-ahorro__linea {
+  fill: none;
+  stroke: #8154f4;
+  stroke-width: 2.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.grafica-ahorro__punto {
+  fill: #8154f4;
+  cursor: pointer;
+  stroke: #ffffff;
+  stroke-width: 1.2;
+  transition:
+    r 0.16s ease,
+    filter 0.16s ease;
+}
+
+.grafica-ahorro__punto:hover {
+  filter: drop-shadow(0 3px 6px rgba(129, 84, 244, 0.22));
+}
+
+.grafica-tooltip--ahorro {
+  translate: -50% -100%;
+  min-width: 142px;
+  padding: 10px 12px;
+}
+
+.grafica-ahorro__meses {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-top: 8px;
+  color: #98a0ab;
+  font-size: 11px;
+  text-align: center;
+}
+
+.reportes-exportar {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.reportes-exportar button {
+  min-height: 58px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid #dfe5e2;
+  border-radius: 15px;
+  background: #ffffff;
+  color: #26322d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 7px rgba(31, 53, 44, 0.045);
+  transition:
+    transform 0.18s ease,
+    background-color 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.reportes-exportar__emoji {
+  display: inline-block;
+  font-size: 17px;
+  line-height: 1;
+  filter: saturate(0.72);
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease;
+}
+
+.reportes-exportar button:hover {
+  transform: translateY(-1px);
+}
+
+.reportes-exportar button:hover .reportes-exportar__emoji {
+  transform: scale(1.04);
+  filter: saturate(1);
+}
+
+.reportes-exportar__pdf:hover {
+  border-color: #e0a39d;
+  background: #fff5f4;
+  color: #d65245;
+  box-shadow: 0 8px 18px rgba(214, 82, 69, 0.10);
+}
+
+.reportes-exportar__excel:hover {
+  border-color: #48c58d;
+  background: #eefaf5;
+  color: #179e67;
+  box-shadow: 0 8px 18px rgba(72, 197, 141, 0.10);
+}
+
+@media (max-width: 920px) {
+  .distribucion-gastos {
+    grid-template-columns: 1fr;
+  }
+
+  .distribucion-gastos__lista {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .reportes-resumen,
+  .reportes-exportar {
+    grid-template-columns: 1fr;
+  }
+
+  .grafica-barras {
+    overflow-x: auto;
+  }
+
+  .grafica-barras__area {
+    min-width: 650px;
+  }
+
+  .distribucion-gastos__lista {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================================================
+   REPORTES — MODO OSCURO
+   ========================================================= */
+
+html.tema-oscuro body .reportes-page {
+  color: #eef4f1;
+}
+
+/* =========================================================
+   MENSAJE DE ERROR
+   ========================================================= */
+
+html.tema-oscuro body .reportes-error {
+  border-color: rgba(227, 106, 92, 0.35);
+  background: rgba(214, 90, 76, 0.13);
+  color: #ed8175;
+}
+
+/* =========================================================
+   TARJETAS DE RESUMEN Y PANELES
+   ========================================================= */
+
+html.tema-oscuro body .reporte-resumen-card,
+html.tema-oscuro body .reporte-panel {
+  border-color: #2c3b4d;
+  background: #182434;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.015);
+}
+
+html.tema-oscuro body .reporte-resumen-card p {
+  color: #96a4b4;
+}
+
+html.tema-oscuro body .reporte-resumen-card--ingresos strong {
+  color: #55ce98;
+}
+
+html.tema-oscuro body .reporte-resumen-card--gastos strong {
+  color: #e26c5f;
+}
+
+html.tema-oscuro body .reporte-resumen-card--ahorro strong {
+  color: #65b18f;
+}
+
+html.tema-oscuro body .reporte-resumen-card--tasa strong {
+  color: #956cff;
+}
+
+html.tema-oscuro body .reporte-panel__header h2 {
+  color: #f1f5f3;
+}
+
+html.tema-oscuro body .reporte-panel__header p,
+html.tema-oscuro body .reporte-panel__header span {
+  color: #96a4b4;
+}
+
+/* =========================================================
+   ESTADO VACÍO
+   ========================================================= */
+
+html.tema-oscuro body .reportes-vacio {
+  background: #111c29;
+  color: #8d9aaa;
+}
+
+/* =========================================================
+   GRÁFICA DE BARRAS
+   ========================================================= */
+
+html.tema-oscuro body .grafica-barras {
+  background: #111c29;
+}
+
+html.tema-oscuro body .grafica-barras__area {
+  border-bottom-color: #2d3c4e;
+
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 61px,
+    #2b3949 62px
+  );
+}
+
+html.tema-oscuro body .grafica-barras__mes {
+  color: #92a0b0;
+}
+
+html.tema-oscuro body .grafica-barras__columna--ingreso {
+  background: #55c995;
+}
+
+html.tema-oscuro body .grafica-barras__columna--gasto {
+  background: #d06a5c;
+}
+
+html.tema-oscuro body
+  .grafica-barras__grupo:hover
+  .grafica-barras__columna {
+  filter: brightness(1.09);
+}
+
+/* =========================================================
+   TOOLTIPS
+   ========================================================= */
+
+html.tema-oscuro body .grafica-tooltip {
+  border-color: #354457;
+  background: rgba(24, 36, 52, 0.98);
+  color: #edf3f0;
+
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+html.tema-oscuro body .grafica-tooltip strong {
+  color: #f1f5f3;
+}
+
+html.tema-oscuro body .tooltip-ingreso {
+  color: #59d09c;
+}
+
+html.tema-oscuro body .tooltip-gasto {
+  color: #e7786b;
+}
+
+html.tema-oscuro body .tooltip-ahorro {
+  color: #9d7aff;
+}
+
+html.tema-oscuro body .grafica-tooltip--dona span {
+  color: #f1f5f3;
+}
+
+html.tema-oscuro body .grafica-tooltip--dona small {
+  color: #9ba8b6;
+}
+
+/* =========================================================
+   LEYENDAS
+   ========================================================= */
+
+html.tema-oscuro body .grafica-leyenda {
+  color: #99a7b6;
+}
+
+html.tema-oscuro body .leyenda-ingreso {
+  background: #55ce98;
+}
+
+html.tema-oscuro body .leyenda-gasto {
+  background: #d76b5d;
+}
+
+/* =========================================================
+   DISTRIBUCIÓN DE GASTOS
+   ========================================================= */
+
+html.tema-oscuro body .distribucion-gastos__grafica {
+  background: #111c29;
+}
+
+html.tema-oscuro body .distribucion-gastos__segmento {
+  stroke: #111c29;
+}
+
+html.tema-oscuro body .distribucion-gastos__segmento--activo {
+  filter: brightness(1.12)
+    drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+}
+
+html.tema-oscuro body .distribucion-categoria__encabezado {
+  color: #e9f0ed;
+}
+
+html.tema-oscuro body .distribucion-categoria__barra {
+  background: #2c3a4a;
+}
+
+html.tema-oscuro body .distribucion-categoria small {
+  color: #95a3b3;
+}
+
+/* =========================================================
+   GRÁFICA DE AHORRO MENSUAL
+   ========================================================= */
+
+html.tema-oscuro body .grafica-ahorro {
+  background: #111c29;
+}
+
+html.tema-oscuro body .grafica-ahorro__svg-wrap {
+  border-bottom-color: #2d3c4e;
+
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 54px,
+    rgba(53, 68, 87, 0.72) 55px
+  );
+}
+
+html.tema-oscuro body .grafica-ahorro__relleno {
+  fill: rgba(149, 108, 255, 0.13);
+}
+
+html.tema-oscuro body .grafica-ahorro__linea {
+  stroke: #956cff;
+}
+
+html.tema-oscuro body .grafica-ahorro__punto {
+  fill: #956cff;
+  stroke: #182434;
+}
+
+html.tema-oscuro body .grafica-ahorro__punto:hover {
+  filter:
+    drop-shadow(0 0 3px rgba(149, 108, 255, 0.55))
+    drop-shadow(0 5px 8px rgba(0, 0, 0, 0.3));
+}
+
+html.tema-oscuro body .grafica-ahorro__meses {
+  color: #93a1b1;
+}
+
+/* =========================================================
+   BOTONES DE EXPORTACIÓN
+   ========================================================= */
+
+html.tema-oscuro body .reportes-exportar button {
+  border-color: #304052;
+  background: #182434;
+  color: #edf3f0;
+
+  box-shadow:
+    0 7px 20px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.015);
+}
+
+/* PDF: oscuro por defecto, rojo suave únicamente al pasar */
+
+html.tema-oscuro body .reportes-exportar__pdf:hover {
+  border-color: #d96b60;
+  background: rgba(214, 82, 69, 0.13);
+  color: #ee7b70;
+
+  box-shadow:
+    0 10px 24px rgba(214, 82, 69, 0.13);
+}
+
+/* Excel: oscuro por defecto, verde suave únicamente al pasar */
+
+html.tema-oscuro body .reportes-exportar__excel:hover {
+  border-color: #4fc590;
+  background: rgba(79, 197, 144, 0.13);
+  color: #62d3a0;
+
+  box-shadow:
+    0 10px 24px rgba(72, 197, 141, 0.13);
+}
+
+html.tema-oscuro body .reportes-exportar button:active {
+  transform: translateY(0);
+}
+
+html.tema-oscuro body .reportes-exportar__emoji {
+  filter: saturate(0.82) brightness(1.06);
+}
+
+html.tema-oscuro body
+  .reportes-exportar button:hover
+  .reportes-exportar__emoji {
+  filter: saturate(1.08) brightness(1.1);
+}
+
+/* =========================================================
+   SCROLL HORIZONTAL DE LA GRÁFICA EN PANTALLAS PEQUEÑAS
+   ========================================================= */
+
+html.tema-oscuro body .grafica-barras {
+  scrollbar-color: #415164 #111c29;
+}
+
+html.tema-oscuro body .grafica-barras::-webkit-scrollbar {
+  height: 9px;
+}
+
+html.tema-oscuro body .grafica-barras::-webkit-scrollbar-track {
+  background: #111c29;
+}
+
+html.tema-oscuro body .grafica-barras::-webkit-scrollbar-thumb {
+  border: 2px solid #111c29;
+  border-radius: 999px;
+  background: #415164;
+}

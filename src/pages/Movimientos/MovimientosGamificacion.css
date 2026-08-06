@@ -1,0 +1,134 @@
+/* =========================================================
+   RECOMPENSA DE GAMIFICACIÓN EN MOVIMIENTOS
+   ========================================================= */
+
+.movimientos-xp-toast {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 500;
+
+  width: min(360px, calc(100vw - 32px));
+  min-height: 82px;
+
+  display: grid;
+  grid-template-columns: 46px 1fr 32px;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 14px 14px 16px;
+
+  border: 1px solid rgba(70, 196, 139, 0.22);
+  border-radius: 20px;
+
+  color: #20342b;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.97),
+      rgba(241, 255, 248, 0.97)
+    );
+
+  box-shadow:
+    0 22px 55px rgba(31, 78, 57, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+
+  backdrop-filter: blur(18px);
+  animation: movimientos-xp-entrada 320ms ease;
+}
+
+.movimientos-xp-toast__icon {
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 15px;
+
+  color: #ffffff;
+  background:
+    linear-gradient(135deg, #63d7a4, #2dbb7c);
+
+  box-shadow:
+    0 10px 22px rgba(46, 184, 123, 0.28);
+}
+
+.movimientos-xp-toast strong {
+  display: block;
+
+  color: #25aa70;
+  font-size: 16px;
+  font-weight: 850;
+}
+
+.movimientos-xp-toast p {
+  margin: 3px 0 0;
+
+  color: #708078;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.movimientos-xp-toast > button {
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+  place-items: center;
+
+  border: 0;
+  border-radius: 10px;
+
+  color: #7d8c85;
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.movimientos-xp-toast > button:hover {
+  color: #26372f;
+  background: rgba(45, 187, 124, 0.08);
+}
+
+@keyframes movimientos-xp-entrada {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+html.tema-oscuro body .movimientos-xp-toast {
+  border-color: rgba(87, 210, 157, 0.22);
+  color: #edf6f1;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(29, 41, 36, 0.97),
+      rgba(24, 36, 31, 0.97)
+    );
+
+  box-shadow:
+    0 22px 58px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+html.tema-oscuro body .movimientos-xp-toast p {
+  color: #aab7b0;
+}
+
+html.tema-oscuro body .movimientos-xp-toast > button {
+  color: #a9b6af;
+}
+
+@media (max-width: 620px) {
+  .movimientos-xp-toast {
+    right: 16px;
+    bottom: 16px;
+  }
+}

@@ -1,0 +1,768 @@
+Biblioteca
+/
+Tareas escolares
+/
+Presupuestos.css
+
+
+.presupuestos-page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  padding-bottom: 10px;
+  font-family: var(--fuente-textos, "Lato", sans-serif);
+}
+
+.presupuestos-page h2,
+.presupuestos-page strong,
+.presupuestos-page button {
+  font-family: var(--fuente-titulos, "Montserrat", sans-serif);
+}
+
+.presupuestos-total,
+.presupuesto-card {
+  border: 1px solid #e1e7e4;
+  background: #ffffff;
+  box-shadow: 0 2px 7px rgba(32, 45, 38, 0.055);
+}
+
+.presupuestos-total {
+  padding: 24px 20px 20px;
+  border-radius: 18px;
+}
+
+.presupuestos-total__encabezado,
+.presupuesto-card__fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.presupuestos-total__encabezado h2 {
+  margin: 0;
+  color: #25302d;
+  font-size: 17px;
+}
+
+.presupuestos-total__encabezado > span {
+  color: #818a96;
+  font-size: 13px;
+}
+
+.presupuestos-total__cantidades {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 20px 0 15px;
+}
+
+.presupuestos-total__cantidades strong {
+  color: #4fc590;
+  font-size: 28px;
+}
+
+.presupuestos-total__cantidades span {
+  color: #7f8894;
+  font-size: 14px;
+}
+
+.presupuestos-barra,
+.presupuesto-card__barra {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e5e8ec;
+}
+
+.presupuestos-barra {
+  height: 12px;
+}
+
+.presupuestos-barra > span,
+.presupuesto-card__barra > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #4fc590;
+  transition: width 0.25s ease;
+}
+
+.presupuestos-total p {
+  margin: 12px 0 0;
+  color: #727d89;
+  font-size: 13px;
+}
+
+.presupuestos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.presupuesto-card {
+  padding: 17px 16px 16px;
+  border-radius: 17px;
+}
+
+.presupuesto-card__fila {
+  position: relative;
+  padding-right: 34px;
+}
+
+.presupuesto-card__categoria {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.presupuesto-card__categoria > span {
+  font-size: 20px;
+}
+
+.presupuesto-card__categoria strong {
+  color: #28312e;
+  font-size: 14px;
+}
+
+.presupuesto-card__montos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.presupuesto-card__montos strong {
+  color: #202a27;
+  font-size: 15px;
+}
+
+.presupuesto-card__montos span {
+  margin-top: 2px;
+  color: #8a93a0;
+  font-size: 12px;
+}
+
+.presupuesto-card--excedido .presupuesto-card__montos strong {
+  color: #c95749;
+}
+
+.presupuesto-card__barra {
+  height: 10px;
+  margin-top: 13px;
+}
+
+.presupuesto-card__alerta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 9px 0 0;
+  color: #ef5a53;
+  font-size: 12px;
+}
+
+.presupuesto-card__eliminar {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: transparent;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.presupuesto-card:hover .presupuesto-card__eliminar {
+  color: #a5afaa;
+}
+
+.presupuesto-card__eliminar:hover {
+  color: #d65a4c !important;
+  background: #fff0ed;
+}
+
+.presupuestos-vacio {
+  min-height: 170px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #e1e7e4;
+  border-radius: 17px;
+  background: #ffffff;
+  color: #87918e;
+}
+
+.presupuestos-nuevo {
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 13px;
+  background: #4fc590;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(44, 163, 113, 0.18);
+  cursor: pointer;
+}
+
+.presupuestos-nuevo:hover {
+  background: #43ba84;
+}
+
+.presupuestos-error {
+  padding: 11px 13px;
+  border: 1px solid #f2c7c2;
+  border-radius: 10px;
+  background: #fff0ee;
+  color: #c44f45;
+  font-size: 13px;
+}
+
+.presupuestos-modal-fondo {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(25, 34, 31, 0.62);
+  backdrop-filter: blur(4px);
+}
+
+.presupuestos-modal {
+  width: min(100%, 430px);
+  overflow: hidden;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+
+.presupuestos-modal header {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  border-bottom: 1px solid #e7ebe9;
+}
+
+.presupuestos-modal header > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #43be86;
+}
+
+.presupuestos-modal header h2,
+.presupuestos-confirmacion h2 {
+  margin: 0;
+  color: #27312e;
+  font-size: 18px;
+}
+
+.presupuestos-modal header button {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #7e8985;
+  cursor: pointer;
+}
+
+.presupuestos-modal__contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px;
+}
+
+.presupuestos-modal label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #8b95a4;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.presupuestos-modal select,
+.presupuestos-modal input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 14px;
+  border: 1px solid #dfe5e2;
+  border-radius: 12px;
+  background: #fafbfc;
+  outline: none;
+  color: #26302d;
+  font-family: var(--fuente-textos, "Lato", sans-serif);
+  font-size: 14px;
+  text-transform: none;
+}
+
+.presupuestos-modal select:focus,
+.presupuestos-modal input:focus {
+  border-color: #4fc590;
+  box-shadow: 0 0 0 3px rgba(79, 197, 144, 0.12);
+}
+
+.presupuestos-monto {
+  display: flex;
+  align-items: center;
+  border: 1px solid #dfe5e2;
+  border-radius: 12px;
+  background: #fafbfc;
+}
+
+.presupuestos-monto:focus-within {
+  border-color: #4fc590;
+  box-shadow: 0 0 0 3px rgba(79, 197, 144, 0.12);
+}
+
+.presupuestos-monto span {
+  padding-left: 14px;
+  color: #42be85;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.presupuestos-monto input {
+  border: 0;
+  box-shadow: none;
+}
+
+.presupuestos-periodo {
+  padding: 12px 14px;
+  border-radius: 11px;
+  background: #eefaf4;
+  color: #248a61;
+  font-size: 13px;
+  text-align: center;
+}
+
+.presupuestos-modal__guardar {
+  width: 100%;
+  min-height: 52px;
+  border: 0;
+  border-radius: 12px;
+  background: #52c792;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.presupuestos-modal__guardar:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.presupuestos-confirmacion {
+  width: min(100%, 390px);
+  padding: 28px;
+  border-radius: 20px;
+  background: #ffffff;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+
+.presupuestos-confirmacion__icono {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  color: #d65a4c;
+  background: #fff0ed;
+}
+
+.presupuestos-confirmacion p {
+  color: #7c8783;
+}
+
+.presupuestos-confirmacion__acciones {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.presupuestos-confirmacion button {
+  min-height: 42px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 11px;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.presupuestos-confirmacion .secundario {
+  border: 1px solid #dfe5e2;
+  background: #ffffff;
+  color: #65706d;
+}
+
+.presupuestos-confirmacion .peligro {
+  background: #d65a4c;
+}
+
+@media (max-width: 700px) {
+  .presupuestos-total__encabezado,
+  .presupuesto-card__fila {
+    align-items: flex-start;
+  }
+
+  .presupuesto-card__montos {
+    min-width: 90px;
+  }
+}
+
+
+/* Selector visual de tipo de presupuesto */
+.presupuestos-tipos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.presupuestos-tipo {
+  min-height: 86px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 8px;
+  border: 1px solid #dfe5e2;
+  border-radius: 13px;
+  background: #fafbfc;
+  color: #68736f;
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+
+.presupuestos-tipo span {
+  font-size: 25px;
+  line-height: 1;
+}
+
+.presupuestos-tipo strong {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.presupuestos-tipo:hover {
+  border-color: #84d7b3;
+  background: #f3fcf7;
+}
+
+.presupuestos-tipo.activo {
+  border-color: #4fc590;
+  background: #eaf9f2;
+  color: #13885d;
+  box-shadow: 0 0 0 2px rgba(79, 197, 144, 0.12);
+}
+
+@media (max-width: 480px) {
+  .presupuestos-tipos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* =========================================================
+   PRESUPUESTOS — MODO OSCURO
+   ========================================================= */
+
+html.tema-oscuro body .presupuestos-page {
+  color: #eef4f1;
+}
+
+/* Tarjeta total y presupuestos individuales */
+
+html.tema-oscuro body .presupuestos-total,
+html.tema-oscuro body .presupuesto-card,
+html.tema-oscuro body .presupuestos-vacio {
+  border-color: #2c3b4d;
+  background: #182434;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.015);
+}
+
+html.tema-oscuro body .presupuestos-total__encabezado h2 {
+  color: #f1f5f3;
+}
+
+html.tema-oscuro body .presupuestos-total__encabezado > span {
+  color: #91a0b1;
+}
+
+html.tema-oscuro body .presupuestos-total__cantidades strong {
+  color: #55ce98;
+}
+
+html.tema-oscuro body .presupuestos-total__cantidades span {
+  color: #9aa7b6;
+}
+
+html.tema-oscuro body .presupuestos-total p {
+  color: #99a7b6;
+}
+
+html.tema-oscuro body .presupuestos-barra,
+html.tema-oscuro body .presupuesto-card__barra {
+  background: #2b3949;
+}
+
+html.tema-oscuro body .presupuestos-barra > span,
+html.tema-oscuro body .presupuesto-card__barra > span {
+  background: #4fc590;
+}
+
+html.tema-oscuro body .presupuesto-card__categoria strong {
+  color: #f0f5f2;
+}
+
+html.tema-oscuro body .presupuesto-card__montos strong {
+  color: #edf3f0;
+}
+
+html.tema-oscuro body .presupuesto-card__montos span {
+  color: #93a1b1;
+}
+
+html.tema-oscuro body
+  .presupuesto-card--excedido
+  .presupuesto-card__montos strong {
+  color: #ed7467;
+}
+
+html.tema-oscuro body .presupuesto-card__alerta {
+  color: #ed7467;
+}
+
+html.tema-oscuro body .presupuesto-card__eliminar {
+  color: transparent;
+}
+
+html.tema-oscuro body
+  .presupuesto-card:hover
+  .presupuesto-card__eliminar {
+  color: #8492a2;
+}
+
+html.tema-oscuro body .presupuesto-card__eliminar:hover {
+  color: #ef776a !important;
+  background: rgba(214, 90, 76, 0.14);
+}
+
+html.tema-oscuro body .presupuestos-vacio {
+  color: #8d9aaa;
+}
+
+/* Botón principal */
+
+html.tema-oscuro body .presupuestos-nuevo {
+  background: #4fc590;
+
+  box-shadow:
+    0 10px 25px rgba(35, 165, 111, 0.24);
+}
+
+html.tema-oscuro body .presupuestos-nuevo:hover {
+  background: #58cf9b;
+
+  box-shadow:
+    0 12px 29px rgba(35, 165, 111, 0.3);
+}
+
+/* Mensajes */
+
+html.tema-oscuro body .presupuestos-error {
+  border-color: rgba(227, 106, 92, 0.35);
+  background: rgba(214, 90, 76, 0.13);
+  color: #ed8175;
+}
+
+/* Fondo de modales */
+
+html.tema-oscuro body .presupuestos-modal-fondo {
+  background: rgba(5, 11, 17, 0.74);
+  backdrop-filter: blur(6px);
+}
+
+/* Modal nuevo presupuesto */
+
+html.tema-oscuro body .presupuestos-modal {
+  border: 1px solid #304052;
+  background: #182434;
+
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.48);
+}
+
+html.tema-oscuro body .presupuestos-modal header {
+  border-bottom-color: #2d3c4e;
+}
+
+html.tema-oscuro body .presupuestos-modal header > div {
+  color: #58cf9b;
+}
+
+html.tema-oscuro body .presupuestos-modal header h2,
+html.tema-oscuro body .presupuestos-confirmacion h2 {
+  color: #f1f5f3;
+}
+
+html.tema-oscuro body .presupuestos-modal header button {
+  color: #9ba8b6;
+}
+
+html.tema-oscuro body .presupuestos-modal header button:hover {
+  background: #223144;
+  color: #ffffff;
+}
+
+html.tema-oscuro body .presupuestos-modal label {
+  color: #98a5b4;
+}
+
+html.tema-oscuro body .presupuestos-modal select,
+html.tema-oscuro body .presupuestos-modal input {
+  border-color: #344356;
+  background: #111c29;
+  color: #f1f5f3;
+}
+
+html.tema-oscuro body .presupuestos-modal select:focus,
+html.tema-oscuro body .presupuestos-modal input:focus {
+  border-color: #4fc590;
+  box-shadow: 0 0 0 3px rgba(79, 197, 144, 0.12);
+}
+
+html.tema-oscuro body .presupuestos-modal select option {
+  background: #111c29;
+  color: #f1f5f3;
+}
+
+/* Campo de monto */
+
+html.tema-oscuro body .presupuestos-monto {
+  border-color: #344356;
+  background: #111c29;
+}
+
+html.tema-oscuro body .presupuestos-monto:focus-within {
+  border-color: #4fc590;
+  box-shadow: 0 0 0 3px rgba(79, 197, 144, 0.12);
+}
+
+html.tema-oscuro body .presupuestos-monto span {
+  color: #58cf9b;
+}
+
+html.tema-oscuro body .presupuestos-monto input {
+  background: transparent;
+  color: #f1f5f3;
+}
+
+/* Periodo */
+
+html.tema-oscuro body .presupuestos-periodo {
+  background: rgba(79, 197, 144, 0.11);
+  color: #65d4a2;
+}
+
+/* Selector visual de categorías */
+
+html.tema-oscuro body .presupuestos-tipo {
+  border-color: #344356;
+  background: #111c29;
+  color: #a7b3bf;
+}
+
+html.tema-oscuro body .presupuestos-tipo:hover {
+  border-color: #4fc590;
+  background: #1c2c3c;
+  color: #dce5e1;
+}
+
+html.tema-oscuro body .presupuestos-tipo.activo {
+  border-color: #4fc590;
+  background: rgba(79, 197, 144, 0.13);
+  color: #65d4a2;
+
+  box-shadow:
+    0 0 0 2px rgba(79, 197, 144, 0.1);
+}
+
+/* Botón guardar */
+
+html.tema-oscuro body .presupuestos-modal__guardar {
+  background: #4fc590;
+
+  box-shadow:
+    0 8px 20px rgba(35, 165, 111, 0.2);
+}
+
+html.tema-oscuro body .presupuestos-modal__guardar:hover:not(:disabled) {
+  background: #58cf9b;
+}
+
+html.tema-oscuro body .presupuestos-modal__guardar:disabled {
+  background: #315645;
+  color: #879b91;
+  opacity: 1;
+}
+
+/* Confirmación de eliminación */
+
+html.tema-oscuro body .presupuestos-confirmacion {
+  border: 1px solid #304052;
+  background: #182434;
+
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.48);
+}
+
+html.tema-oscuro body .presupuestos-confirmacion__icono {
+  color: #ed7568;
+  background: rgba(214, 90, 76, 0.14);
+}
+
+html.tema-oscuro body .presupuestos-confirmacion p {
+  color: #a0adba;
+}
+
+html.tema-oscuro body .presupuestos-confirmacion .secundario {
+  border-color: #354457;
+  background: #111c29;
+  color: #b7c1cc;
+}
+
+html.tema-oscuro body .presupuestos-confirmacion .secundario:hover {
+  background: #223144;
+  color: #ffffff;
+}
+
+html.tema-oscuro body .presupuestos-confirmacion .peligro {
+  background: #d65a4c;
+}
+
+html.tema-oscuro body .presupuestos-confirmacion .peligro:hover {
+  background: #e26759;
+}

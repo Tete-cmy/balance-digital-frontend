@@ -1,0 +1,183 @@
+.header {
+  width: 100%;
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-bottom: 1px solid #dfe5e2;
+  box-shadow: 0 1px 3px rgba(31, 42, 37, 0.04);
+  font-family: var(--fuente-textos, "Lato", sans-serif);
+}
+
+.header__contenido {
+  width: 100%;
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 28px;
+}
+
+.header__titulos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.header__titulos h1 {
+  margin: 0;
+  color: #24302c;
+  font-family: var(--fuente-titulos, "Montserrat", sans-serif);
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.45px;
+}
+
+.header__titulos p {
+  margin: 0;
+  color: #9aa4b1;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.header__acciones {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header__notificaciones {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: #25312d;
+  cursor: pointer;
+}
+
+.header__notificaciones:hover {
+  background: #f4f7f5;
+}
+
+.header__notificaciones > span {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  background: #d95d50;
+}
+
+.header__separador {
+  width: 1px;
+  height: 34px;
+  background: #e4e9e6;
+}
+
+.header__usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #26302d;
+  cursor: pointer;
+}
+
+.header__avatar {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #50c590;
+  color: #ffffff;
+  font-family: var(--fuente-titulos, "Montserrat", sans-serif);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.header__nombre {
+  max-width: 180px;
+  overflow: hidden;
+  color: #26302d;
+  font-family: var(--fuente-titulos, "Montserrat", sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header__usuario:hover .header__nombre {
+  color: #2fac77;
+}
+
+@media (max-width: 760px) {
+  .header__contenido {
+    padding: 0 18px;
+  }
+
+  .header__titulos h1 {
+    font-size: 21px;
+  }
+
+  .header__titulos p,
+  .header__nombre,
+  .header__separador {
+    display: none;
+  }
+}
+/* =========================================================
+   FIX BOTÓN DE NOTIFICACIONES — MODO OSCURO
+   Pegar al FINAL de:
+   src/components/layouts/Header.css
+   ========================================================= */
+
+html.tema-oscuro body .header__notificaciones {
+  border: 1px solid transparent !important;
+  color: #dce9e2 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+html.tema-oscuro body .header__notificaciones:hover {
+  border-color: #3a4a42 !important;
+  color: #7ae0b2 !important;
+  background: #22312a !important;
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.18) !important;
+  transform: translateY(-1px);
+}
+
+html.tema-oscuro body .header__notificaciones:focus,
+html.tema-oscuro body .header__notificaciones:focus-visible,
+html.tema-oscuro body .header__notificaciones:active {
+  border-color: #476157 !important;
+  color: #7ae0b2 !important;
+  background: #26372f !important;
+  box-shadow:
+    0 0 0 3px rgba(87, 207, 151, 0.12) !important;
+  outline: none !important;
+}
+
+html.tema-oscuro body .header__notificaciones svg {
+  color: inherit !important;
+  stroke: currentColor !important;
+}
+
+html.tema-oscuro body .header__notificaciones::before,
+html.tema-oscuro body .header__notificaciones::after {
+  display: none !important;
+  content: none !important;
+}

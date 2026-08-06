@@ -1,0 +1,1013 @@
+Biblioteca
+/
+Tareas escolares
+/
+Movimientos.css
+
+
+.movimientos-page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  font-family: var(--fuente-textos, "Lato", sans-serif);
+}
+
+.movimientos-page h1,
+.movimientos-page h2,
+.movimientos-page h3,
+.movimientos-page strong,
+.movimientos-page button {
+  font-family: var(--fuente-titulos, "Montserrat", sans-serif);
+}
+
+/* =========================================================
+   BUSCADOR Y FILTROS
+========================================================= */
+
+.movimientos-toolbar,
+.movimientos-filtros,
+.movimientos-table-card,
+.movimientos-total {
+  border: 1px solid #e1e7e4;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(35, 48, 42, 0.045);
+}
+
+.movimientos-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 96px;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 18px;
+}
+
+.movimientos-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid #dfe5e2;
+  border-radius: 12px;
+  background: #fafbfc;
+  color: #9aa5b2;
+}
+
+.movimientos-search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #26302d;
+  font-family: var(--fuente-textos, "Lato", sans-serif);
+  font-size: 14px;
+}
+
+.movimientos-search input::placeholder {
+  color: #a9b2bf;
+}
+
+.movimientos-filter-button {
+  width: 96px;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 12px;
+  border: 1px solid #d9dfdc;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #65706d;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.movimientos-filter-button:hover {
+  border-color: #4fc590;
+  color: #2eaa76;
+  background: #f7fffb;
+}
+
+.movimientos-filtros {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 15px;
+}
+
+.movimientos-filtros select {
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px solid #dfe5e2;
+  border-radius: 11px;
+  background: #ffffff;
+  font-family: var(--fuente-textos, "Lato", sans-serif);
+}
+
+.movimientos-filtros button {
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid #d9dfdc;
+  border-radius: 11px;
+  background: #ffffff;
+  color: #65706d;
+  cursor: pointer;
+}
+
+/* =========================================================
+   TABLA
+========================================================= */
+
+.movimientos-table-card {
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.movimientos-table-header,
+.movimientos-row {
+  display: grid;
+  grid-template-columns: 110px minmax(250px, 1.6fr) 140px 120px 125px 36px;
+  align-items: center;
+  gap: 14px;
+}
+
+.movimientos-table-header {
+  min-height: 48px;
+  padding: 0 20px;
+  background: #fafbfc;
+  color: #929cab;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.movimientos-table-body {
+  max-height: 365px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.movimientos-row {
+  min-height: 62px;
+  padding: 0 20px;
+  border-top: 1px solid #edf0ee;
+}
+
+.movimientos-fecha,
+.movimientos-descripcion {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.movimientos-fecha {
+  color: #7d8794;
+  font-size: 12px;
+}
+
+.movimientos-descripcion strong {
+  color: #27312e;
+  font-size: 13px;
+}
+
+.movimientos-tipo-icon {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 30px;
+  border-radius: 9px;
+}
+
+.movimientos-tipo-icon.ingreso {
+  color: #35bd80;
+  background: #eafaf3;
+}
+
+.movimientos-tipo-icon.gasto {
+  color: #d65a4c;
+  background: #fff0ed;
+}
+
+.movimientos-categoria {
+  width: fit-content;
+  max-width: 130px;
+  padding: 4px 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.movimientos-monto {
+  font-size: 13px;
+}
+
+.movimientos-monto.ingreso {
+  color: #35bd80;
+}
+
+.movimientos-monto.gasto {
+  color: #d65a4c;
+}
+
+.movimientos-estado {
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.movimientos-estado.confirmado {
+  color: #159660;
+  background: #eafaf3;
+}
+
+.movimientos-estado.pendiente {
+  color: #a56b00;
+  background: #fff6dd;
+}
+
+.movimientos-estado.cancelado {
+  color: #b94c43;
+  background: #fff0ed;
+}
+
+.movimientos-delete {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #a7b0ac;
+  cursor: pointer;
+}
+
+.movimientos-delete:hover {
+  color: #d65a4c;
+  background: #fff0ed;
+}
+
+.movimientos-empty {
+  min-height: 170px;
+  display: grid;
+  place-items: center;
+  color: #87918e;
+}
+
+/* =========================================================
+   TARJETAS DE RESUMEN
+========================================================= */
+
+.movimientos-resumen {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.movimientos-total {
+  min-height: 102px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 17px 18px;
+  border-radius: 17px;
+}
+
+.movimientos-total span {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.movimientos-total strong {
+  margin: 8px 0 4px;
+  font-size: 21px;
+}
+
+.movimientos-total small {
+  color: #87918e;
+}
+
+.movimientos-total.ingresos {
+  color: #2eaf77;
+  background: #ecfbf4;
+}
+
+.movimientos-total.gastos {
+  color: #cc5448;
+  background: #fff0f0;
+}
+
+.movimientos-total.balance {
+  color: #2eaf77;
+  background: #effbf4;
+}
+
+/* =========================================================
+   BOTÓN INFERIOR EXACTO COMO FIGMA
+========================================================= */
+
+.movimientos-add {
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: 0;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 13px;
+  background: #4fc590;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(44, 163, 113, 0.18);
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.movimientos-add:hover {
+  background: #43ba84;
+  box-shadow: 0 10px 22px rgba(44, 163, 113, 0.23);
+  transform: translateY(-1px);
+}
+
+.movimientos-add:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   ERRORES
+========================================================= */
+
+.movimientos-error {
+  padding: 11px 13px;
+  border: 1px solid #f2c7c2;
+  border-radius: 10px;
+  background: #fff0ee;
+  color: #c44f45;
+  font-size: 13px;
+}
+
+/* =========================================================
+   MODAL NUEVO MOVIMIENTO
+========================================================= */
+
+.movimientos-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(25, 34, 31, 0.62);
+  backdrop-filter: blur(4px);
+}
+
+.movimientos-modal {
+  width: min(100%, 430px);
+  overflow: hidden;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+
+.movimientos-modal header {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  border-bottom: 1px solid #e7ebe9;
+}
+
+.movimientos-modal header div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #43be86;
+}
+
+.movimientos-modal h2,
+.movimientos-confirm h2 {
+  margin: 0;
+  color: #27312e;
+  font-size: 18px;
+}
+
+.movimientos-modal header button {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #7e8985;
+  cursor: pointer;
+}
+
+.movimientos-modal header button:hover {
+  background: #f3f6f4;
+}
+
+.movimientos-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px;
+}
+
+.movimientos-tipo-selector,
+.movimientos-estado-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.movimientos-tipo-selector button,
+.movimientos-estado-selector button {
+  min-height: 44px;
+  border: 1px solid #dfe5e2;
+  border-radius: 12px;
+  background: #fafbfc;
+  color: #69736f;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.movimientos-tipo-selector button.active.ingreso {
+  border-color: #6fb596;
+  color: #159660;
+  background: #edf9f3;
+}
+
+.movimientos-tipo-selector button.active.gasto {
+  border-color: #ef4e4e;
+  color: #d33f3f;
+  background: #fff1f1;
+}
+
+.movimientos-estado-selector button.active.confirmado {
+  border-color: #35bd80;
+  color: #159660;
+  background: #edfbf4;
+}
+
+.movimientos-estado-selector button.active.pendiente {
+  border-color: #efc15a;
+  color: #9a6a00;
+  background: #fff8df;
+}
+
+.movimientos-modal label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #8b95a4;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.movimientos-modal input,
+.movimientos-modal select {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 14px;
+  border: 1px solid #dfe5e2;
+  border-radius: 12px;
+  background: #fafbfc;
+  outline: none;
+  color: #26302d;
+  font-family: var(--fuente-textos, "Lato", sans-serif);
+  font-size: 14px;
+  text-transform: none;
+}
+
+.movimientos-modal input:focus,
+.movimientos-modal select:focus {
+  border-color: #4fc590;
+  box-shadow: 0 0 0 3px rgba(79, 197, 144, 0.12);
+}
+
+.movimientos-money-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #dfe5e2;
+  border-radius: 12px;
+  background: #fafbfc;
+}
+
+.movimientos-money-input:focus-within {
+  border-color: #4fc590;
+  box-shadow: 0 0 0 3px rgba(79, 197, 144, 0.12);
+}
+
+.movimientos-money-input span {
+  padding-left: 14px;
+  color: #42be85;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.movimientos-money-input input {
+  border: 0;
+  box-shadow: none;
+}
+
+.movimientos-submit-figma {
+  width: 100%;
+  min-height: 54px;
+  border: 0;
+  border-radius: 12px;
+  background: #52c792;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.movimientos-submit-figma:hover:not(:disabled) {
+  background: #45bb86;
+}
+
+.movimientos-submit-figma:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+/* =========================================================
+   MODAL ELIMINAR
+========================================================= */
+
+.movimientos-confirm {
+  width: min(100%, 390px);
+  padding: 28px;
+  border-radius: 20px;
+  background: #ffffff;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+
+.movimientos-confirm-icon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  color: #d65a4c;
+  background: #fff0ed;
+}
+
+.movimientos-confirm p {
+  color: #7c8783;
+}
+
+.movimientos-confirm > div:last-child {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.movimientos-confirm button {
+  min-height: 42px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 11px;
+  background: #4fc590;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.movimientos-confirm button.secondary {
+  border: 1px solid #dfe5e2;
+  background: #ffffff;
+  color: #65706d;
+}
+
+.movimientos-confirm button.danger {
+  background: #d65a4c;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+  .movimientos-table-header {
+    display: none;
+  }
+
+  .movimientos-row {
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+
+  .movimientos-fecha,
+  .movimientos-categoria,
+  .movimientos-estado {
+    grid-column: 1;
+  }
+
+  .movimientos-monto,
+  .movimientos-delete {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .movimientos-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .movimientos-filter-button {
+    width: 100%;
+  }
+
+  .movimientos-filtros {
+    flex-direction: column;
+  }
+
+  .movimientos-resumen {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================================================
+   MOVIMIENTOS — MODO OSCURO
+   ========================================================= */
+
+html.tema-oscuro body .movimientos-page {
+  color: #eef4f1;
+}
+
+/* =========================================================
+   BUSCADOR, FILTROS Y CONTENEDORES
+   ========================================================= */
+
+html.tema-oscuro body .movimientos-toolbar,
+html.tema-oscuro body .movimientos-filtros,
+html.tema-oscuro body .movimientos-table-card {
+  background: #182434;
+  border-color: #2c3b4d;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.015);
+}
+
+html.tema-oscuro body .movimientos-search {
+  background: #111c29;
+  border-color: #334255;
+  color: #91a0b1;
+}
+
+html.tema-oscuro body .movimientos-search:focus-within {
+  border-color: #4fc590;
+  box-shadow: 0 0 0 3px rgba(79, 197, 144, 0.11);
+}
+
+html.tema-oscuro body .movimientos-search input {
+  color: #f1f5f3;
+}
+
+html.tema-oscuro body .movimientos-search input::placeholder {
+  color: #748396;
+}
+
+html.tema-oscuro body .movimientos-filter-button,
+html.tema-oscuro body .movimientos-filtros button {
+  background: #182434;
+  border-color: #354457;
+  color: #b7c1cc;
+}
+
+html.tema-oscuro body .movimientos-filter-button:hover,
+html.tema-oscuro body .movimientos-filtros button:hover {
+  background: #203044;
+  border-color: #4fc590;
+  color: #60d19d;
+}
+
+html.tema-oscuro body .movimientos-filtros select {
+  background: #111c29;
+  border-color: #354457;
+  color: #eef4f1;
+}
+
+html.tema-oscuro body .movimientos-filtros select:focus {
+  border-color: #4fc590;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 197, 144, 0.11);
+}
+
+/* =========================================================
+   TABLA
+   ========================================================= */
+
+html.tema-oscuro body .movimientos-table-header {
+  background: #141f2d;
+  color: #8e9cad;
+}
+
+html.tema-oscuro body .movimientos-row {
+  border-top-color: #2a3949;
+
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease;
+}
+
+html.tema-oscuro body .movimientos-row:hover {
+  background: #1d2b3c;
+}
+
+html.tema-oscuro body .movimientos-fecha {
+  color: #9aa7b6;
+}
+
+html.tema-oscuro body .movimientos-descripcion strong {
+  color: #f0f5f2;
+}
+
+html.tema-oscuro body .movimientos-tipo-icon.ingreso {
+  color: #52ce96;
+  background: rgba(53, 189, 128, 0.13);
+}
+
+html.tema-oscuro body .movimientos-tipo-icon.gasto {
+  color: #e36a5c;
+  background: rgba(214, 90, 76, 0.13);
+}
+
+html.tema-oscuro body .movimientos-estado.confirmado {
+  color: #5ed49f;
+  background: rgba(53, 189, 128, 0.13);
+}
+
+html.tema-oscuro body .movimientos-estado.pendiente {
+  color: #efc45f;
+  background: rgba(239, 193, 90, 0.13);
+}
+
+html.tema-oscuro body .movimientos-estado.cancelado {
+  color: #ea786d;
+  background: rgba(214, 90, 76, 0.13);
+}
+
+html.tema-oscuro body .movimientos-delete {
+  color: #7f8d9c;
+}
+
+html.tema-oscuro body .movimientos-delete:hover {
+  color: #ed7568;
+  background: rgba(214, 90, 76, 0.14);
+}
+
+html.tema-oscuro body .movimientos-empty {
+  color: #8d9aaa;
+}
+
+/* Scroll interno de tabla */
+
+html.tema-oscuro body .movimientos-table-body {
+  scrollbar-color: #415164 #111c29;
+}
+
+html.tema-oscuro body .movimientos-table-body::-webkit-scrollbar {
+  width: 9px;
+}
+
+html.tema-oscuro body .movimientos-table-body::-webkit-scrollbar-track {
+  background: #111c29;
+}
+
+html.tema-oscuro body .movimientos-table-body::-webkit-scrollbar-thumb {
+  border: 2px solid #111c29;
+  border-radius: 20px;
+  background: #415164;
+}
+
+/* =========================================================
+   TARJETAS DE RESUMEN
+   ========================================================= */
+
+html.tema-oscuro body .movimientos-total {
+  border-color: #2c3b4d;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.015);
+}
+
+html.tema-oscuro body .movimientos-total.ingresos {
+  color: #56ce99;
+  background: #17332d;
+}
+
+html.tema-oscuro body .movimientos-total.gastos {
+  color: #e66e61;
+  background: #382528;
+}
+
+html.tema-oscuro body .movimientos-total.balance {
+  color: #56ce99;
+  background: #17312d;
+}
+
+html.tema-oscuro body .movimientos-total small {
+  color: #99a7b5;
+}
+
+/* =========================================================
+   BOTÓN AGREGAR
+   ========================================================= */
+
+html.tema-oscuro body .movimientos-add {
+  background: #4fc590;
+
+  box-shadow:
+    0 10px 25px rgba(35, 165, 111, 0.24);
+}
+
+html.tema-oscuro body .movimientos-add:hover {
+  background: #58cf9b;
+
+  box-shadow:
+    0 12px 29px rgba(35, 165, 111, 0.3);
+}
+
+/* =========================================================
+   MENSAJE DE ERROR
+   ========================================================= */
+
+html.tema-oscuro body .movimientos-error {
+  background: rgba(214, 90, 76, 0.13);
+  border-color: rgba(227, 106, 92, 0.35);
+  color: #ed8175;
+}
+
+/* =========================================================
+   MODAL NUEVO MOVIMIENTO
+   ========================================================= */
+
+html.tema-oscuro body .movimientos-modal-backdrop {
+  background: rgba(5, 11, 17, 0.74);
+  backdrop-filter: blur(6px);
+}
+
+html.tema-oscuro body .movimientos-modal {
+  background: #182434;
+  border: 1px solid #304052;
+
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.48);
+}
+
+html.tema-oscuro body .movimientos-modal header {
+  border-bottom-color: #2d3c4e;
+}
+
+html.tema-oscuro body .movimientos-modal h2,
+html.tema-oscuro body .movimientos-confirm h2 {
+  color: #f1f5f3;
+}
+
+html.tema-oscuro body .movimientos-modal header button {
+  color: #9ba8b6;
+}
+
+html.tema-oscuro body .movimientos-modal header button:hover {
+  background: #223144;
+  color: #ffffff;
+}
+
+html.tema-oscuro body .movimientos-modal label {
+  color: #98a5b4;
+}
+
+html.tema-oscuro body .movimientos-modal input,
+html.tema-oscuro body .movimientos-modal select {
+  background: #111c29;
+  border-color: #344356;
+  color: #f1f5f3;
+}
+
+html.tema-oscuro body .movimientos-modal input::placeholder {
+  color: #738294;
+}
+
+html.tema-oscuro body .movimientos-modal input:focus,
+html.tema-oscuro body .movimientos-modal select:focus {
+  border-color: #4fc590;
+  box-shadow: 0 0 0 3px rgba(79, 197, 144, 0.12);
+}
+
+html.tema-oscuro body .movimientos-money-input {
+  background: #111c29;
+  border-color: #344356;
+}
+
+html.tema-oscuro body .movimientos-money-input:focus-within {
+  border-color: #4fc590;
+  box-shadow: 0 0 0 3px rgba(79, 197, 144, 0.12);
+}
+
+html.tema-oscuro body .movimientos-money-input input {
+  background: transparent;
+}
+
+html.tema-oscuro body .movimientos-tipo-selector button,
+html.tema-oscuro body .movimientos-estado-selector button {
+  background: #111c29;
+  border-color: #344356;
+  color: #a8b4c1;
+}
+
+html.tema-oscuro body
+  .movimientos-tipo-selector button.active.ingreso {
+  border-color: #4fc590;
+  color: #62d3a0;
+  background: rgba(79, 197, 144, 0.12);
+}
+
+html.tema-oscuro body
+  .movimientos-tipo-selector button.active.gasto {
+  border-color: #df685b;
+  color: #ed786c;
+  background: rgba(214, 90, 76, 0.13);
+}
+
+html.tema-oscuro body
+  .movimientos-estado-selector button.active.confirmado {
+  border-color: #4fc590;
+  color: #62d3a0;
+  background: rgba(79, 197, 144, 0.12);
+}
+
+html.tema-oscuro body
+  .movimientos-estado-selector button.active.pendiente {
+  border-color: #d7ad4d;
+  color: #efc45f;
+  background: rgba(239, 193, 90, 0.12);
+}
+
+/* =========================================================
+   MODAL ELIMINAR
+   ========================================================= */
+
+html.tema-oscuro body .movimientos-confirm {
+  background: #182434;
+  border: 1px solid #304052;
+
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.48);
+}
+
+html.tema-oscuro body .movimientos-confirm-icon {
+  color: #e87568;
+  background: rgba(214, 90, 76, 0.14);
+}
+
+html.tema-oscuro body .movimientos-confirm p {
+  color: #a0adba;
+}
+
+html.tema-oscuro body .movimientos-confirm button.secondary {
+  background: #111c29;
+  border-color: #354457;
+  color: #b7c1cc;
+}
+
+html.tema-oscuro body .movimientos-confirm button.secondary:hover {
+  background: #223144;
+  color: #ffffff;
+}
+
+html.tema-oscuro body .movimientos-confirm button.danger {
+  background: #d65a4c;
+}
+
+html.tema-oscuro body .movimientos-confirm button.danger:hover {
+  background: #e26759;
+}

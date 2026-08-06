@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --fuente-titulos: "Montserrat", Arial, sans-serif;
+  --fuente-textos: "Lato", Arial, sans-serif;
+}
+
+/* =====================================================
+   TIPOGRAFÍA GENERAL
+===================================================== */
+
+html,
+body,
+#root {
+  font-family: var(--fuente-textos);
+}
+
+body,
+button,
+input,
+textarea,
+select,
+option {
+  font-family: var(--fuente-textos);
+}
+
+/* =====================================================
+   TÍTULOS Y ENCABEZADOS
+===================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--fuente-titulos);
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+h2,
+h3 {
+  font-weight: 700;
+}
+
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+.login-card-header h1 {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+}
+
+.login-card-header p,
+.login-field label,
+.login-input-container input,
+.login-options,
+.login-remember,
+.login-link-button,
+.login-submit,
+.login-register,
+.login-error {
+  font-family: var(--fuente-textos);
+}
+
+.login-submit,
+.login-link-button,
+.login-register a {
+  font-weight: 700;
+}
+
+/* =====================================================
+   MENÚ LATERAL
+===================================================== */
+
+.sidebar__marca-texto strong,
+.sidebar__marca-texto span {
+  font-family: var(--fuente-titulos);
+}
+
+.sidebar__marca-texto strong {
+  font-weight: 700;
+}
+
+.sidebar__marca-texto span {
+  font-weight: 700;
+}
+
+.sidebar__opcion {
+  font-family: var(--fuente-textos);
+  font-weight: 500;
+}
+
+.sidebar__opcion--activa {
+  font-weight: 700;
+}
+
+/* =====================================================
+   ENCABEZADO PRINCIPAL
+===================================================== */
+
+.header-sistema__titulo h1 {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+}
+
+.header-sistema__titulo p {
+  font-family: var(--fuente-textos);
+  font-weight: 400;
+}
+
+.header-sistema__nombre {
+  font-family: var(--fuente-textos);
+  font-weight: 700;
+}
+
+/* =====================================================
+   TARJETAS DEL DASHBOARD
+===================================================== */
+
+.resumen-card__etiqueta {
+  font-family: var(--fuente-textos);
+  font-weight: 600;
+}
+
+.resumen-card > strong {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+
+.resumen-card__detalle {
+  font-family: var(--fuente-textos);
+  font-weight: 700;
+}
+
+/* =====================================================
+   PANELES Y GRÁFICAS
+===================================================== */
+
+.dashboard-panel__header h2,
+.dashboard-movimientos__header h2 {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+}
+
+.dashboard-panel__header p {
+  font-family: var(--fuente-textos);
+  font-weight: 400;
+}
+
+.grafica-lineas__escala,
+.grafica-lineas__meses,
+.grafica-lineas__leyenda {
+  font-family: var(--fuente-textos);
+}
+
+.categoria-gasto__nombre {
+  font-family: var(--fuente-textos);
+  font-weight: 400;
+}
+
+.categoria-gasto strong {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+}
+
+/* =====================================================
+   MOVIMIENTOS
+===================================================== */
+
+.dashboard-movimientos__header button {
+  font-family: var(--fuente-textos);
+  font-weight: 700;
+}
+
+.movimiento-item__datos strong {
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+}
+
+.movimiento-item__datos span {
+  font-family: var(--fuente-textos);
+  font-weight: 400;
+}
+
+.movimiento-item__monto {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+}
+
+/* =====================================================
+   FORMULARIOS Y BOTONES GENERALES
+===================================================== */
+
+button,
+input,
+textarea,
+select,
+label,
+a,
+p,
+span {
+  font-family: var(--fuente-textos);
+}
+
+button {
+  font-weight: 600;
+}
+
+/* =====================================================
+   CLASES REUTILIZABLES
+===================================================== */
+
+.fuente-titulo {
+  font-family: var(--fuente-titulos);
+}
+
+.fuente-texto {
+  font-family: var(--fuente-textos);
+}
+
+.texto-financiero {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.texto-secundario {
+  font-family: var(--fuente-textos);
+  font-weight: 400;
+}
+
+/* =====================================================
+   MEJORAS DE RENDERIZADO
+===================================================== */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+html.tema-oscuro,
+html.tema-oscuro body,
+html.tema-oscuro #root {
+  background: #0d1723 !important;
+}
+
+html.tema-oscuro .sistema-layout,
+html.tema-oscuro .sistema-layout__principal,
+html.tema-oscuro .sistema-layout__contenido {
+  background: #0d1723 !important;
+}
+
+html.tema-oscuro .header {
+  background: #162333 !important;
+  border-bottom-color: #2a394a !important;
+}
+
+html.tema-oscuro .header__titulos h1,
+html.tema-oscuro .header__nombre {
+  color: #f2f6f4 !important;
+}
+
+html.tema-oscuro .header__titulos p {
+  color: #93a1b1 !important;
+}
+
+html.tema-oscuro .header__notificaciones {
+  color: #eef3f1 !important;
+}
+
+html.tema-oscuro .header__separador {
+  background: #304052 !important;
+}
